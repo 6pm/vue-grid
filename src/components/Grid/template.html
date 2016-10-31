@@ -1,0 +1,45 @@
+<div class="grid-component">
+
+    <!-- start filter -->
+    <div class="grid-filter">
+        <input class="grid-filter-item" type="text" placeholder="search" v-model="searchField">
+
+        <select class="grid-filter-item">
+            <option>select by status</option>
+            <option>item 2</option>
+        </select>
+    </div>
+    <!-- end filter -->
+
+    <!-- start grid -->
+    <table class="grid-table">
+        <tr>
+            <th>--</th>
+            <th>image</th>
+            <th>name</th>
+            <th>description</th>
+            <th>tags</th>
+            <th>status</th>
+        </tr>
+
+        <tr v-for="item in gridData" data-id="item.id">
+            <td><input type="checkbox"></td>
+
+            <td>
+                <img :src="item.image">
+            </td>
+
+            <td>{{ item.name }}</td>
+
+            <td>{{ item.description }}</td>
+
+            <td>{{ item.tags }}</td>
+            <td>
+                <span :class="'grid-item-status ' + item.status">{{ item.status }}</span>
+            </td>
+
+        </tr>
+    </table>
+    <!-- end grid -->
+</div>
+
